@@ -1,0 +1,25 @@
+1、实现从服务器上下载文件并保存到本地
+https://www.cnblogs.com/withfeel/p/10635873.html
+主要是运用了 ssh的scp的远程传输文件命令
+
+https://www.cnblogs.com/sunyingyuan/p/3686201.html
+scp 命令遇到需要访问端口的情况
+
+
+2、实现自动登录
+https://blog.csdn.net/zjhqlmzldx/article/details/80622469
+自动登录是指能够在输入密码时自动输入并登录到系统，这里采用 shell里的expect 脚本
+
+3、在登录之后实现执行本地已经确定的命令
+ssh $username@$host -p 31737 "cd $src_file && rm -rf *"
+引号中的命令为远程服务器上所执行的命令
+
+4、实现自动执行上述脚本
+http://caibaojian.com/crontab.html
+主要是运用linux上的自动脚本管理器
+命令为：crontab -e
+
+*/1 * * * * expect /home/cremiygu/Desktop/checkpoints/autosu.sh 10.0.4.235 root 1234 /root/cremiygu/visdial-rl-master-Xlnet-train-adjusted_model/checkpoints/27-Oct-19-02:58:47-Sun_4317963  /home/cremiygu/Desktop/checkpoints
+
+
+
